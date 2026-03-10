@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DaFra Parfum</title>
 
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="16x16" href="web/favicon.png">
+
+<!-- App icons -->
+<link rel="icon" type="image/png" sizes="192x192" href="web/icons/Icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="web/icons/Icon-512.png">
+<link rel="apple-touch-icon" href="web/icons/Icon-192.png">
+
 <style>
     :root {
         --bg: #0b0b0b;
@@ -29,6 +37,30 @@
         min-height: 100vh;
         text-align: center;
         padding: 30px 20px;
+    }
+
+    /* HEADER */
+
+    .header {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+
+    .login-btn {
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 13px;
+        letter-spacing: 1px;
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        transition: all 0.25s ease;
+    }
+
+    .login-btn:hover {
+        background: var(--gold);
+        color: var(--bg);
     }
 
     .container {
@@ -95,6 +127,10 @@
 </head>
 
 <body>
+
+<div class="header">
+    <a href="web/index.html" class="login-btn">Login</a>
+</div>
 
 <div class="container">
 
