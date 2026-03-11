@@ -52797,7 +52797,7 @@ for(;;)switch(s){case 0:p=$.aE().b
 p===$&&A.a()
 q=t.N
 s=2
-return A.l(A.PW(p.gcM(),B.aay,A.a0(["prompt","select_account"],q,q),"dafraparfum://auth-callback"),$async$CB)
+return A.l(A.PW(p.gcM(),B.aay,A.a0(["prompt","select_account"],q,q),"https://dafraparfum.github.io/web/"),$async$CB)
 case 2:return A.q(null,r)}})
 return A.r($async$CB,r)}}
 A.afn.prototype={
