@@ -171,135 +171,173 @@ a:hover {
     <h3>2.1 Datos de Registro</h3>
     <ul>
     <li>Nombre y apellido</li>
-    <li>Número de DNI</li>
-    <li>Dirección de correo electrónico (Google OAuth)</li>
+    <li>Número de DNI (Documento Nacional de Identidad)</li>
+    <li>Dirección de correo electrónico (obtenida mediante autenticación con Google)</li>
     <li>Número de teléfono</li>
     <li>Sexo (F/M)</li>
-    <li>DNI del referente (si corresponde)</li>
+    <li>Número de DNI del referente (en caso de contar con uno)</li>
     </ul>
     
     <h3>2.2 Datos de Actividad</h3>
     <ul>
-    <li>Pedidos: productos, cantidades, precios y estado</li>
-    <li>Comisiones generadas por la red</li>
-    <li>Puntos acumulados y canjes</li>
-    <li>Crédito disponible</li>
-    <li>Rango y estado del usuario</li>
-    <li>Historial de cierres semanales</li>
+    <li>Pedidos: productos solicitados, cantidades, precios y estado (Creado, Confirmado, Cancelado)</li>
+    <li>Comisiones: comisiones generadas por ventas de la red del usuario, calculadas al cierre de cada período semanal</li>
+    <li>Puntos: puntos acumulados por unidades confirmadas y canjes de recompensas realizados</li>
+    <li>Crédito: saldo a favor cuando las comisiones del usuario superan el costo de su pedido</li>
+    <li>Rango y Estado: rango actual del usuario (Inicial/Emprendedor/Profesional/Referente/Líder) y estado (Activa/Inactiva), recalculados al cierre de cada campaña</li>
+    <li>Historial: snapshots del rango, estado y crédito del usuario al momento de cada cierre semanal</li>
     </ul>
     
-    <h3>2.3 Relaciones en la Red</h3>
+    <h3>2.3 Relaciones en la Red de Ventas</h3>
     <ul>
-    <li>Referente directo</li>
-    <li>Referidas directas</li>
-    <li>Coordinadora del grupo</li>
-    <li>Modificaciones realizadas por administradores</li>
+    <li>Referente directo del usuario</li>
+    <li>Referidas directas del usuario</li>
+    <li>Coordinadora del grupo al que pertenece el usuario (si corresponde)</li>
+    <li>Modificaciones de los campos anteriores realizadas por administradores</li>
     </ul>
     
-    <h2>3. Finalidad del Tratamiento</h2>
+    <h2>3. Finalidad del Tratamiento de Datos</h2>
     <ul>
-    <li>Autenticación con Google OAuth</li>
-    <li>Procesamiento de pedidos</li>
-    <li>Cálculo de comisiones</li>
-    <li>Gestión de puntos y crédito</li>
-    <li>Recalculo de rango y estado</li>
-    <li>Generación de informes PDF</li>
-    <li>Gestión de red de ventas</li>
+    <li>Autenticar al usuario mediante Google OAuth</li>
+    <li>Procesar pedidos y validar disponibilidad de stock</li>
+    <li>Calcular comisiones semanales según el rango, estado y estructura de la red del usuario</li>
+    <li>Calcular y acreditar puntos por unidades confirmadas</li>
+    <li>Liquidar crédito automáticamente contra el costo del pedido</li>
+    <li>Recalcular rango y estado al cierre de cada campaña</li>
+    <li>Generar informes en formato PDF (individuales, agrupados, de stock, de productos)</li>
+    <li>Gestionar el proceso de aprobación de nuevas vendedoras por parte de sus referentes</li>
+    <li>Mostrar información de la red en la aplicación (árbol de referentes, comisiones estimadas)</li>
     </ul>
     
-    <h2>4. Acceso y Compartición</h2>
+    <h2>4. Acceso y Compartición de Información</h2>
     
     <h3>4.1 Referente Directo</h3>
-    <p>Puede acceder a datos básicos, estado, pedidos confirmados y comisiones generadas.</p>
+    <ul>
+    <li>Nombre, apellido, DNI, rango y estado del usuario</li>
+    <li>Estado de bloqueo de la cuenta</li>
+    <li>Pedidos confirmados del usuario (al generar informes agrupados de su equipo)</li>
+    <li>Comisiones generadas para el referente por el usuario</li>
+    </ul>
     
     <h3>4.2 Referidas Directas</h3>
-    <p>Pueden visualizar nombre, DNI, rango y estado del referente.</p>
-    
-    <h3>4.3 Red Descendente</h3>
-    <p>Hasta 4 niveles pueden visualizar datos básicos del usuario por motivos de comisiones.</p>
-    
-    <h3>4.4 Coordinadora</h3>
-    <p>Puede incluir al usuario en informes y visualizar pedidos confirmados.</p>
-    
-    <h3>4.5 Administradores</h3>
-    <p>Tienen acceso completo y capacidad de gestión de cuentas.</p>
-    
-    <h3>4.6 Datos No Compartidos</h3>
     <ul>
-    <li>Correo electrónico</li>
-    <li>Teléfono</li>
-    <li>Puntos</li>
-    <li>Crédito</li>
+    <li>Nombre, apellido y DNI del usuario (en su calidad de referente)</li>
+    <li>Rango y estado del usuario</li>
     </ul>
     
-    <h2>5. Proveedores de Servicios</h2>
+    <h3>4.3 Vendedoras Generadoras de Comisiones</h3>
     <ul>
-    <li>Google (OAuth)</li>
-    <li>Supabase (base de datos)</li>
+    <li>Nombre, apellido y DNI del usuario</li>
+    <li>Rango y estado del usuario</li>
+    </ul>
+    <p>
+    Esta visibilidad es necesaria dado que el usuario aparece en los informes de comisiones de dichas vendedoras como beneficiario.
+    </p>
+    
+    <h3>4.4 Coordinadora de Grupo</h3>
+    <ul>
+    <li>Incluir al usuario en informes agrupados de su grupo</li>
+    <li>Visualizar los pedidos confirmados del usuario en dichos informes</li>
     </ul>
     
-    <p><strong>No vendemos ni compartimos datos con fines comerciales.</strong></p>
-    
-    <h2>6. Seguridad</h2>
+    <h3>4.5 Administradores del Sistema</h3>
     <ul>
-    <li>Google OAuth</li>
-    <li>RLS en base de datos</li>
-    <li>HTTPS</li>
-    <li>Control de roles</li>
+    <li>Datos de cuenta, rango, estado, crédito y puntos</li>
+    <li>Pedidos, comisiones y canjes</li>
+    <li>Capacidad de bloquear/desbloquear la cuenta</li>
+    <li>Capacidad de modificar el referente y coordinador</li>
+    <li>Capacidad de aprobar solicitudes de ingreso</li>
     </ul>
     
-    <p>No se puede garantizar seguridad absoluta.</p>
+    <h3>4.6 Información No Visible para Otras Vendedoras</h3>
+    <ul>
+    <li>Dirección de correo electrónico</li>
+    <li>Número de teléfono</li>
+    <li>Puntos acumulados</li>
+    <li>Crédito disponible</li>
+    </ul>
+    
+    <h2>5. Proveedores de Servicios Terceros</h2>
+    <p>La información del usuario se comparte únicamente con los siguientes proveedores:</p>
+    <ul>
+    <li>Google: para autenticación OAuth (únicamente dirección de correo electrónico)</li>
+    <li>Supabase: proveedor de base de datos que almacena toda la información de la aplicación en servidores cifrados</li>
+    </ul>
+    <p>
+    DaFra Parfum no vende, alquila ni comparte información personal con terceros con fines publicitarios o de marketing.
+    </p>
+    
+    <h2>6. Medidas de Seguridad</h2>
+    <ul>
+    <li>Autenticación mediante Google OAuth (no se almacenan contraseñas)</li>
+    <li>Row Level Security (RLS) en la base de datos: cada vendedora únicamente puede acceder a los datos que le corresponden según las reglas establecidas</li>
+    <li>Conexión cifrada mediante protocolo HTTPS entre la aplicación y el servidor</li>
+    <li>Control de acceso basado en roles (administrador/vendedora)</li>
+    </ul>
+    <p>
+    Si bien se implementan medidas de seguridad razonables, ningún sistema es completamente seguro. DaFra Parfum no puede garantizar la seguridad absoluta de la información.
+    </p>
     
     <h2>7. Conservación de Datos</h2>
     
     <h3>7.1 Datos Activos</h3>
-    <p>Se conservan mientras la cuenta esté activa.</p>
+    <p>La información personal del usuario se conserva mientras la cuenta no sea borrada.</p>
     
     <h3>7.2 Datos Históricos</h3>
     <p>
-    Los registros de pedidos y comisiones se conservan indefinidamente por razones operativas y legales.
+    Los registros de comisiones, pedidos y snapshots de cierre se conservan de forma indefinida por las siguientes razones:
     </p>
+    <ul>
+    <li>Mantener la integridad del sistema de comisiones</li>
+    <li>Permitir que otras vendedoras accedan a sus propios registros históricos de comisiones</li>
+    <li>Cumplir con obligaciones fiscales y contables</li>
+    </ul>
     <p>
-    Al eliminar la cuenta, los datos personales se anonimizan.
+    En caso de eliminación de cuenta, los datos personales identificatorios (nombre, apellido, DNI, correo electrónico) serán anonimizados, pero los registros históricos de comisiones y pedidos se mantendrán por los motivos expuestos anteriormente.
     </p>
     
-    <h2>8. Bloqueo y Aprobación</h2>
+    <h2>8. Bloqueo y Aprobación de Cuentas</h2>
     
     <h3>8.1 Nuevas Cuentas</h3>
-    <p>
-    Las cuentas requieren aprobación del referente o administrador.
-    </p>
-    
-    <h3>8.2 Bloqueo</h3>
+    <p>Todas las cuentas nuevas inician en estado bloqueado hasta su aprobación:</p>
     <ul>
-    <li>Se pierde acceso a la app</li>
-    <li>Pedidos activos se cancelan</li>
-    <li>No genera comisiones</li>
-    <li>Puede ser desbloqueada</li>
+    <li>Registro sin referente: la cuenta requiere aprobación manual por parte del administrador</li>
+    <li>Registro con referente: el referente dispone de un plazo de 5 días calendario para aceptar o rechazar la solicitud desde la aplicación. En caso de rechazo, se elimina el vínculo de referencia y la cuenta pasa a aprobación del administrador. Si el referente no realiza acción alguna dentro del plazo establecido, la cuenta también pasa a aprobación del administrador.</li>
     </ul>
+    
+    <h3>8.2 Bloqueo Posterior</h3>
+    <p>El administrador puede bloquear cualquier cuenta en cualquier momento. Las consecuencias del bloqueo son:</p>
+    <ul>
+    <li>El usuario pierde acceso a la aplicación</li>
+    <li>Los pedidos activos del usuario (correspondientes al cierre vigente) se cancelan automáticamente y el stock asignado se libera</li>
+    <li>Los pedidos confirmados de cierres anteriores no se modifican</li>
+    <li>El usuario continúa apareciendo en el árbol de sus referidas, identificado como bloqueado</li>
+    <li>El usuario no genera comisiones para sus ascendentes mientras permanezca bloqueado</li>
+    </ul>
+    <p>El administrador puede desbloquear la cuenta en cualquier momento.</p>
     
     <h2>9. Derechos del Usuario</h2>
     <ul>
-    <li>Acceder a sus datos</li>
-    <li>Rectificarlos</li>
-    <li>Solicitar eliminación</li>
-    <li>Exportar información</li>
+    <li>Acceder a toda su información personal almacenada en la aplicación contactando al administrador</li>
+    <li>Rectificar sus datos personales (nombre, apellido, DNI) contactando al administrador</li>
+    <li>Solicitar la eliminación de su cuenta</li>
+    <li>Exportar sus informes en formato PDF</li>
     </ul>
-    
-    <p>Contacto: <strong>dafraparfum@gmail.com</strong></p>
+    <p>Para ejercer estos derechos, el usuario puede contactar a dafraparfum@gmail.com.</p>
     
     <h2>10. Menores de Edad</h2>
-    <p>Solo para mayores de 18 años.</p>
+    <p>DaFra Parfum está destinada exclusivamente a personas mayores de 18 años. La aplicación no recopila intencionalmente información de menores de edad.</p>
     
-    <h2>11. Modificaciones</h2>
-    <p>Podemos actualizar esta política y notificar cambios relevantes.</p>
+    <h2>11. Modificaciones a esta Política</h2>
+    <p>Esta Política de Privacidad puede ser actualizada periódicamente. Los usuarios serán notificados de cambios significativos mediante correo electrónico.</p>
     
-    <h2>12. Legislación</h2>
-    <p>Ley Argentina N° 25.326.</p>
+    <h2>12. Legislación Aplicable</h2>
+    <p>Esta Política de Privacidad se rige por las leyes de la República Argentina, en particular la Ley de Protección de Datos Personales N° 25.326.</p>
     
     <h2>13. Contacto</h2>
     <p>
-    Email: <strong>dafraparfum@gmail.com</strong><br>
+    Correo electrónico: <strong>dafraparfum@gmail.com</strong><br>
+    Responsable: DaFra Parfum<br>
     Domicilio: Victoria, Entre Ríos, Argentina
     </p>
 
