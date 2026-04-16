@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eliminación de Cuenta - DaFra Parfum</title>
+
+<link rel="icon" type="image/png" sizes="16x16" href="web/favicon.png">
+
+<link rel="icon" type="image/png" sizes="192x192" href="web/icons/Icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="web/icons/Icon-512.png">
+<link rel="apple-touch-icon" href="web/icons/Icon-192.png">
+
+<style>
+:root {
+    --bg: #0b0b0b;
+    --gold: #c6a75e;
+    --gold-soft: #e6c97a;
+    --text: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    padding: 0px 20px 40px;
+    line-height: 1.6;
+}
+
+/* CONTENEDOR */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+/* TITULOS */
+h1 {
+    font-size: 26px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: var(--gold-soft);
+    text-align: center;
+}
+
+/* TEXTO */
+p {
+    margin-bottom: 20px;
+    font-size: 15px;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.highlight {
+    color: var(--gold-soft);
+    font-weight: 600;
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 60px;
+    font-size: 12px;
+    opacity: 0.4;
+    text-align: center;
+}
+
+.header {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* BOTON VOLVER */
+.back {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    transition: all 0.25s ease;
+    display: inline-block;
+}
+
+.back:hover {
+    background: var(--gold);
+    color: var(--bg);
+    text-decoration: none;
+}
+
+/* ANIMACION */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <a href="index.html" class="back">Volver</a>
+</div>
+
+<div class="container">
+
+    <h1>Solicitud de eliminación de cuenta</h1>
+    
+    <h2>Procedimiento de baja</h2>
+    
+    <p>
+    Para solicitar la eliminación de tu cuenta y datos, enviá un correo desde la misma cuenta de Gmail con la que te registraste en DaFra Parfum a <span class="highlight">dafraparfum@gmail.com</span>.
+    </p>
+
+    <p>
+    Por favor, utilizá el asunto: <br>
+    <span class="highlight">"Solicitud de eliminación de cuenta"</span>
+    </p>
+
+    <p>
+    Procesaremos tu solicitud en un plazo de <span class="highlight">48 horas</span>.
+    </p>
+    
+    <p style="font-size: 13px; opacity: 0.7; margin-top: 40px;">
+    Tené en cuenta que, una vez procesada la eliminación, tus datos identificatorios serán anonimizados, manteniendo únicamente los registros históricos necesarios para la integridad del sistema de comisiones y cumplimiento legal.
+    </p>
+
+    <div class="footer">
+        © 2026 DaFra Parfum
+    </div>
+
+</div>
+
+</body>
+</html>
