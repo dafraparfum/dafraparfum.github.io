@@ -208,6 +208,7 @@ a:hover {
     <li>Generar informes en formato PDF (individuales, agrupados, de stock, de productos)</li>
     <li>Gestionar el proceso de aprobación de nuevas vendedoras por parte de sus referentes</li>
     <li>Mostrar información de la red en la aplicación (árbol de referentes, comisiones estimadas)</li>
+    <li>Enviar notificaciones push al dispositivo del usuario mediante Firebase Cloud Messaging (FCM)</li>
     </ul>
     
     <h2>4. Acceso y Compartición de Información</h2>
@@ -262,8 +263,7 @@ a:hover {
     <p>La información del usuario se comparte únicamente con los siguientes proveedores:</p>
     <ul>
     <li>Google: para autenticación OAuth (únicamente dirección de correo electrónico)</li>
-    <li>Firebase (Google): utilizado para el envío de notificaciones push
-        Firebase genera un token de dispositivo (FCM token) que es almacenado en los servidores de Supabase vinculado a la cuenta del usuario, con el único fin de poder enviarle notificaciones</li>
+    <li>Firebase (Google): utilizado para el envío de notificaciones push (Firebase genera un token de dispositivo -FCM token- que es almacenado en los servidores de Supabase vinculado a la cuenta del usuario, con el único fin de poder enviarle notificaciones</li>
     <li>Supabase: proveedor de base de datos que almacena toda la información de la aplicación en servidores cifrados</li>
     </ul>
     <p>
