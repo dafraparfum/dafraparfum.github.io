@@ -1,0 +1,546 @@
+/* ==========================================================================
+   RESET & VARIABLES GENERALES
+   ========================================================================== */
+:root {
+    --bg-color: #0b0b0b;
+    --text-color: #ffffff;
+    --text-muted: #8e8e93;
+    --accent-gold: #c6a75e;
+    --font-federo: 'Federo', sans-serif;
+    --font-noto: 'Noto Serif', serif;
+    --font-roboto: 'Roboto', sans-serif;
+    --font-bodoni: 'Bodoni Moda', serif;
+    --transition-smooth: 400ms cubic-bezier(0.25, 1, 0.5, 1);
+	
+	--bg: #0b0b0b;
+    --gold: #c6a75e;
+    --gold-soft: #e6c97a;
+    --text: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-roboto);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Reducción de movimiento si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ==========================================================================
+   LOGOTIPO BRANDING
+   ========================================================================== */
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+}
+.logo-dafra {
+    font-family: var(--font-federo);
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+.logo-parfum {
+    font-family: var(--font-noto);
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: -4px;
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: var(--font-bodoni);
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-top: 4rem;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    max-width: 400px;
+    margin-top: 2rem;
+}
+
+.scroll-cue {
+    margin-top: 6rem;
+    font-size: 1.2rem;
+    color: var(--accent-gold);
+    animation: pulseCue 2s infinite ease-in-out;
+}
+
+@keyframes pulseCue {
+    0%, 100% { transform: translateY(0); opacity: 0.3; }
+    50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* ==========================================================================
+   CARRUSEL TIPO INSTAGRAM (NATIVO Y ULTRA LIVIANO)
+   ========================================================================== */
+.carousel-container {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    position: relative;
+    margin-bottom: 2.5rem;
+    /* Eliminamos el overflow hidden drástico de acá para que el track interno pueda respirar */
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto; /* Permite el movimiento horizontal */
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory; /* Bloquea el slide perfectamente al soltarlo */
+    scroll-behavior: smooth;
+    
+    /* PROPIEDADES CLAVE PARA PERMITIR EL DESLIZAMIENTO */
+    -webkit-overflow-scrolling: touch; /* Deslizamiento elástico ultra suave en iPhones/Safari */
+    touch-action: pan-x; /* Le avisa al navegador que el dedo se moverá de izquierda a derecha */
+    
+    scrollbar-width: none; /* Oculta barra en Firefox */
+}
+
+/* Oculta la barra de scroll en Chrome/Safari */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start; /* Alineación del slide */
+    position: relative;
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Los archivos multimedia ocupan todo el espacio de forma elegante */
+/* Modifica o reemplaza esta regla en tu css/catalogo.css */
+.perfume-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta y centra el video automáticamente al espacio 4:5 sin deformarlo */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Garantiza el centrado absoluto milimétrico */
+    z-index: 2;
+}
+
+/* Letras de respaldo si el archivo no existe aún */
+.placeholder-fallback {
+    font-family: var(--font-bodoni);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 1.5rem;
+    z-index: 1;
+    position: absolute;
+}
+
+/* Puntitos sutiles de Instagram */
+.carousel-dots {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: background-color var(--transition-smooth);
+}
+
+.dot.active {
+    background-color: var(--accent-gold); /* Destaca en dorado el slide activo */
+}
+
+/* Si aplicás el diseño de 2 columnas en monitor que vimos antes, se adapta solo */
+@media (min-width: 768px) {
+    .carousel-container {
+        flex: 1;
+        margin-bottom: 0;
+    }
+}
+
+/* ==========================================================================
+   CAPÍTULO / FRAGRANCE CARD LAYOUT
+   ========================================================================== */
+.fragrance-chapter {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 1.5rem;
+    border-bottom: 1px solid rgba(198, 167, 94, 0.05);
+}
+
+.card-wrapper {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor de Imagen Placeholder */
+.image-container {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background-color: #141414;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-placeholder-text {
+    font-family: var(--font-bodoni);
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.15);
+    font-size: 1.5rem;
+}
+
+/* Elementos de la cabecera del perfume */
+.perfume-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.perfume-title {
+    font-family: var(--font-bodoni);
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.perfume-teaser {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Botón estructural de interacción */
+.discover-btn {
+    background: none;
+    border: none;
+    color: var(--accent-gold);
+    font-family: var(--font-roboto);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 1.5rem auto 0 auto;
+    padding: 0.5rem 1rem;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid transparent;
+}
+
+.discover-btn:hover {
+    border-bottom: 1px solid var(--accent-gold);
+}
+
+/* ==========================================================================
+   ACORDEÓN - INFORMACIÓN EXPANDIBLE
+   ========================================================================== */
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-smooth), opacity var(--transition-smooth);
+    opacity: 0;
+}
+
+.fragrance-chapter.is-expanded .expandable-content {
+    max-height: 2000px; /* Suficiente espacio para el contenido */
+    opacity: 1;
+}
+
+.details-inner {
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.perfume-story {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Ficha Técnica */
+.specs-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1.5rem;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.spec-label {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.spec-value {
+    font-weight: 300;
+    text-align: right;
+    max-width: 65%;
+}
+
+/* Precios y Acción */
+.pricing-action-zone {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.price-box {
+    display: flex;
+    gap: 2rem;
+}
+
+.price-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price-size {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.price-amount {
+    font-family: var(--font-bodoni);
+    font-size: 1.3rem;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   ANIMACIÓN DEL LOGO PNG (FADE IN SEGURO)
+   ========================================================================== */
+.brand-logo {
+    opacity: 0;
+    animation: fadeInLogo 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 300ms; /* Pequeña pausa intencional antes de aparecer */
+}
+
+.logo-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+@keyframes fadeInLogo {
+    from {
+        opacity: 0;
+        transform: translateY(4px); /* Sutil empuje hacia arriba para dinamismo premium */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Remoción de estilos obsoletos de WhatsApp */
+/* (Podés borrar la regla .whatsapp-cta y .whatsapp-cta:hover si querés limpiar el archivo) */
+
+/* .whatsapp-cta { */
+    /* display: inline-block; */
+    /* background-color: transparent; */
+    /* border: 1px solid var(--accent-gold); */
+    /* color: var(--text-color); */
+    /* text-decoration: none; */
+    /* font-size: 0.8rem; */
+    /* letter-spacing: 2px; */
+    /* text-transform: uppercase; */
+    /* padding: 1rem 2.5rem; */
+    /* transition: var(--transition-smooth); */
+/* } */
+
+/* .whatsapp-cta:hover { */
+    /* background-color: var(--accent-gold); */
+    /* color: var(--bg-color); */
+/* } */
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    padding: 8rem 2rem 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.footer-logo .logo-dafra { font-size: 1.5rem; }
+.footer-logo .logo-parfum { font-size: 0.75rem; }
+
+.footer-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+}
+
+.footer-links a:hover {
+    color: var(--accent-gold);
+}
+
+.back-to-top {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.back-to-top:hover {
+    color: #ffffff;
+}
+
+/* BOTON VOLVER */
+.back {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    transition: all 0.25s ease;
+    line-height: 1.2;
+	font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.header {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.back:hover {
+    background: var(--accent-gold);
+    color: var(--bg-color);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   FLECHAS DE NAVEGACIÓN PARA COMPUTADORA (ESTILO PREMIUM MINIMALISTA)
+   ========================================================================== */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(11, 11, 11, 0.4); /* Fondo ultra sutil */
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-smooth), opacity var(--transition-smooth);
+    opacity: 0; /* Ocultas por defecto */
+    pointer-events: none; /* No interfieren si están ocultas */
+}
+
+/* Posicionamiento milimétrico */
+.prev-btn { left: 1rem; }
+.next-btn { right: 1rem; }
+
+/* El secreto del lujo: Solo se revelan si pasamos el mouse por arriba de la foto */
+.carousel-container:hover .nav-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.nav-btn:hover {
+    background: rgba(198, 167, 94, 0.8); /* Cambia al dorado de la marca al tocarlas */
+    color: #0b0b0b;
+}
+
+/* DESACTIVAR EN CELULARES: En pantallas táctiles no hacen falta y rompen el minimalismo */
+@media (hover: none) and (pointer: coarse) {
+    .nav-btn {
+        display: none !important;
+    }
+}

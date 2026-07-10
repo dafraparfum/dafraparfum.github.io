@@ -139,6 +139,73 @@
     .footer a:hover {
         border-bottom: 1px solid var(--gold);
     }
+	
+	/* BOTONES DESTACADOS */
+
+	.feature-buttons{
+		display:flex;
+		gap:14px;
+		margin:0 0 28px 0;
+	}
+
+	.feature-btn{
+		flex:1;
+		min-height:120px;
+
+		display:flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+
+		padding:18px;
+		border:1px solid var(--gold);
+		border-radius:12px;
+
+		text-decoration:none;
+		color:var(--gold);
+
+		background:rgba(198,167,94,.05);
+
+		transition:.25s ease;
+	}
+
+	.feature-btn:hover{
+		background:var(--gold);
+		color:var(--bg);
+		transform:translateY(-3px);
+	}
+
+	.feature-icon{
+		font-size:30px;
+		margin-bottom:12px;
+	}
+
+	.feature-title{
+		font-size:16px;
+		font-weight:600;
+		line-height:1.3;
+		letter-spacing:.5px;
+	}
+
+	@media (max-width:400px){
+
+		.feature-buttons{
+			gap:10px;
+		}
+
+		.feature-btn{
+			min-height:105px;
+			padding:14px;
+		}
+
+		.feature-title{
+			font-size:14px;
+		}
+
+		.feature-icon{
+			font-size:26px;
+		}
+	}
 
     @keyframes fadeIn {
         to { opacity: 1; }
@@ -161,12 +228,30 @@
 
     <div class="logo-container">
         <img 
-            src="https://github.com/dafraparfum/dafraparfum.github.io/raw/main/logo_page.png" 
+            src="images/logo_page.png"
             alt="DaFra Logo" 
             class="logo" 
             onload="this.classList.add('logo-loaded')"
         >
     </div>
+	
+	<div class="feature-buttons">
+
+    <a href="catalogo.html" class="feature-btn">
+        <!-- <div class="feature-icon">✨</div> -->
+        <div class="feature-title">
+            Nuestras<br>Fragancias
+        </div>
+    </a>
+
+    <a href="trabaja.html" class="feature-btn">
+        <!-- <div class="feature-icon">🤝</div> -->
+        <div class="feature-title">
+            Trabajá con<br>Nosotros
+        </div>
+    </a>
+
+	</div>
 
     <a href="https://instagram.com/dafraparfum" class="btn" target="_blank">
         Instagram

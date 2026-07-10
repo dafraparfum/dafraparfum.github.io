@@ -1,0 +1,61 @@
+/* css/trabaja.css */
+
+/* Forzamos que los bloques de texto estén siempre visibles (sin efecto acordeón) */
+.trabaja-main .details-inner {
+    display: block !important;
+    opacity: 1 !important;
+    margin-bottom: 2rem;
+}
+
+/* Estilos para la zona de contacto del Footer */
+.contact-footer-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: #c6a75e; /* Color dorado característico */
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+}
+
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+	opacity: 0;
+    animation: fadeInLogo 1.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 300ms; /* Pequeña pausa intencional antes de aparecer */
+}
+
+/* BOTON VOLVER */
+.back {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    transition: all 0.25s ease;
+    line-height: 1.2;
+	font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* Distribución limpia de las 4 redes en mobile y desktop */
+.flex-contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 400px;
+}
+
+@media (min-width: 768px) {
+    .flex-contact-links {
+        gap: 3rem;
+        max-width: 100%;
+    }
+}
