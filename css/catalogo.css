@@ -129,7 +129,7 @@ body {
     
     /* PROPIEDADES CLAVE PARA PERMITIR EL DESLIZAMIENTO */
     -webkit-overflow-scrolling: touch; /* Deslizamiento elástico ultra suave en iPhones/Safari */
-    touch-action: auto; /* Le avisa al navegador que el dedo se moverá de izquierda a derecha */
+    touch-action: manipulation; /* Le avisa al navegador que el dedo se moverá de izquierda a derecha */
     
     scrollbar-width: none; /* Oculta barra en Firefox */
 }
@@ -151,7 +151,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-	touch-action: pan-y;
+	touch-action: manipulation;
 }
 
 /* Los archivos multimedia ocupan todo el espacio de forma elegante */
