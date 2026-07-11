@@ -13,8 +13,8 @@ const perfumesData = [
       "12.5ml": "$22.000"
     },
     medios: [
-      { tipo: "imagen", ruta: "images/alborada_1.jpg", alt: "Frasco Alborada" },
-      //{ tipo: "video", ruta: "images/alborada_1.mp4" },
+      //{ tipo: "imagen", ruta: "images/alborada_1.jpg", alt: "Frasco Alborada" },
+      { tipo: "video", ruta: "images/alborada_1.mp4" },
     ]
   },
   {
@@ -77,7 +77,8 @@ const perfumesData = [
       "12.5ml": "$22.000"
     },
     medios: [
-      { tipo: "imagen", ruta: "images/old_money_1.jpg", alt: "Frasco Old Money" },
+		{ tipo: "video", ruta: "images/old_money_2.mp4" },
+    	{ tipo: "imagen", ruta: "images/old_money_1.jpg", alt: "Frasco Old Money" },
 	  //{ tipo: "imagen", ruta: "images/old_money_2.jpg", alt: "Frasco Old Money" },
       //{ tipo: "video", ruta: "images/alborada_1.mp4" },
     ]
@@ -94,7 +95,8 @@ const perfumesData = [
       "12.5ml": "$22.000"
     },
     medios: [
-      { tipo: "imagen", ruta: "images/sombrealis_1.jpg", alt: "Frasco Sombrealis" },
+		{ tipo: "video", ruta: "images/sombrealis_2.mp4" },
+      //{ tipo: "imagen", ruta: "images/sombrealis_1.jpg", alt: "Frasco Sombrealis" },
       //{ tipo: "video", ruta: "images/alborada_1.mp4" },
     ]
   },
