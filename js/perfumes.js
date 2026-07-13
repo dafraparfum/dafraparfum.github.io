@@ -45,7 +45,7 @@ const perfumesData = [
       "12.5ml": "$22.000"
     },
     medios: [
-      { tipo: "imagen", ruta: "images/niagara_1.mp4" },
+      { tipo: "video", ruta: "images/niagara_1.mp4" },
       { tipo: "video", ruta: "images/niagara_2.mp4" },
     ]
   },
