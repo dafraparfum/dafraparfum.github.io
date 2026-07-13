@@ -53,6 +53,53 @@
     max-width: 400px;
 }
 
+/* css/trabaja.css */
+
+/* Posicionamiento de las flechas dentro del contenedor del carrusel */
+.carousel-navigation-arrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: none; /* Ocultas por defecto en mobile */
+    justify-content: space-between;
+    pointer-events: none; /* Para que no tapen los clics en la foto */
+    padding: 0 1rem;
+    z-index: 10;
+}
+
+/* Estilo premium minimalista para las flechas */
+.carousel-arrow {
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto; /* Reactivamos clics en los botones */
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    font-family: 'Roboto', sans-serif;
+}
+
+.carousel-arrow:hover {
+    background: #c6a75e; /* Dorado característico */
+    color: #000000;
+    border-color: #c6a75e;
+}
+
+/* Mostramos las flechas únicamente en pantallas de escritorio o notebooks */
+@media (min-width: 1024px) {
+    .carousel-navigation-arrows {
+        display: flex;
+    }
+}s
+
 @media (min-width: 768px) {
     .flex-contact-links {
         gap: 3rem;

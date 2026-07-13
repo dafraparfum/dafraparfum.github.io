@@ -46,7 +46,8 @@
     </header>
 
     <main class="trabaja-main">
-
+	
+		<!-- GANANCIAS -->
         <section class="fragrance-chapter">
             <div class="card-wrapper">
                 <div class="image-container">
@@ -65,7 +66,66 @@
                 </div>
             </div>
         </section>
+		
+		<!-- SISTEMA DE CANJES (ENTRE GANANCIA Y COMISIONES) -->
+        <section class="fragrance-chapter">
+            <div class="card-wrapper">
+                
+                <!-- Carrusel estático que va a cobrar vida con tu js/trabaja.js -->
+                <div class="carousel-container js-interactive-carousel">
+                    <div class="carousel-track">
+                        
+                        <!-- Slide 1: Vaso Metálico -->
+                        <div class="carousel-slide">
+                            <img src="images/canjes_page_1.jpg" alt="Vaso metálico DaFra" class="perfume-media" loading="lazy">
+                        </div>
+                        
+                        <!-- Slide 2: Bolsito -->
+                        <div class="carousel-slide">
+                            <img src="images/canjes_page_2.jpg" alt="Bolsito con correa" class="perfume-media" loading="lazy">
+                        </div>
+                        
+                        <!-- Slide 3: Neceseres -->
+                        <div class="carousel-slide">
+                            <img src="images/canjes_page_3.jpg" alt="Neceser negro" class="perfume-media" loading="lazy">
+                        </div>
+						
+						<!-- Slide 4: Vaso Térmico -->
+						<div class="carousel-slide">
+                            <img src="images/canjes_page_4.jpg" alt="Vaso térmico" class="perfume-media" loading="lazy">
+                        </div>
+						
+						<!-- Slide 5: Mate de Acero -->
+						<div class="carousel-slide">
+                            <img src="images/canjes_page_5.jpg" alt="Mate de acero" class="perfume-media" loading="lazy">
+                        </div>
+						
+						<!-- Slide 6: Bombilla mate -->
+						<div class="carousel-slide">
+                            <img src="images/canjes_page_6.jpg" alt="Bombilla para mate" class="perfume-media" loading="lazy">
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Los puntitos que se van a prender solos gracias a la clase js-interactive-carousel -->
+                    <div class="carousel-navigation-arrows"></div>
+					<div class="carousel-dots"></div>
+                </div>
+                
+                <div class="perfume-header">
+                    <h2 class="perfume-title">Programa de Incentivos</h2>
+                    <p class="perfume-teaser">“Tu constancia tiene identidad”</p>
+                </div>
 
+                <div class="details-inner" style="padding-top: 1rem;">
+                    <p class="perfume-story">
+                        Cada movimiento en tu negocio suma. Con cada fragancia que incorporás a tus pedidos, acumulás puntos que se transforman en piezas exclusivas de nuestra línea de branding oficial DaFra. Desde mates y bombillas artesanales hasta vasos térmicos, neceseres y bolsos de diseño, pensados para acompañar tu día a día con la elegancia que nos caracteriza.
+                    </p>
+                </div>
+            </div>
+        </section>
+		
+		<!-- COMISIONES -->
         <section class="fragrance-chapter">
             <div class="card-wrapper">
                 <div class="image-container">
@@ -85,6 +145,7 @@
             </div>
         </section>
 
+		<!-- NIVELES -->
         <section class="fragrance-chapter">
             <div class="card-wrapper">
                 <div class="image-container">
@@ -128,5 +189,7 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     </script>
+	
+	<script src="js/trabaja.js"></script>
 </body>
 </html>

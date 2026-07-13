@@ -46,7 +46,7 @@ const perfumesData = [
     },
     medios: [
       { tipo: "imagen", ruta: "images/niagara_1.jpg", alt: "Frasco Niágara" },
-      //{ tipo: "video", ruta: "images/alborada_1.mp4" },
+      { tipo: "video", ruta: "images/niagara_2.mp4" },
     ]
   },
   {
