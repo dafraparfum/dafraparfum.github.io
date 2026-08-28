@@ -140,72 +140,141 @@
         border-bottom: 1px solid var(--gold);
     }
 	
-	/* BOTONES DESTACADOS */
+    /* CATÁLOGO DESPLEGABLE */
 
-	.feature-buttons{
-		display:flex;
-		gap:14px;
-		margin:0 0 28px 0;
-	}
+    .catalog-section {
+        margin-bottom: 18px;
+    }
 
-	.feature-btn{
-		flex:1;
-		min-height:120px;
+    .catalog-box {
+        width: 100%;
+        border: 1px solid var(--gold);
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(198,167,94,.035);
+        box-shadow: 0 8px 30px rgba(0,0,0,.16);
+        transition: box-shadow .35s ease, background .35s ease;
+    }
 
-		display:flex;
-		flex-direction:column;
-		justify-content:center;
-		align-items:center;
+    .catalog-box.open {
+        background: rgba(198,167,94,.055);
+        box-shadow: 0 12px 36px rgba(0,0,0,.24);
+    }
 
-		padding:18px;
-		border:1px solid var(--gold);
-		border-radius:12px;
+    .catalog-btn {
+        position: relative;
+        display: block;
+        width: 100%;
+        min-height: 50px;
+        padding: 14px 18px;
+        border: 0;
+        border-radius: 0;
+        color: var(--gold);
+        background: transparent;
+        font: inherit;
+        cursor: pointer;
+        text-align: center;
+        transition: background .3s ease, color .3s ease;
+    }
 
-		text-decoration:none;
-		color:var(--gold);
+    .catalog-btn:hover {
+        background: rgba(198,167,94,.10);
+        color: var(--gold-soft);
+    }
 
-		background:rgba(198,167,94,.05);
+    .catalog-title {
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: .8px;
+    }
 
-		transition:.25s ease;
-	}
+    .catalog-arrow {
+        position: absolute;
+        right: 18px;
+        width: 9px;
+        height: 9px;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: rotate(45deg) translateY(-3px);
+        transition: transform .35s ease;
+    }
 
-	.feature-btn:hover{
-		background:var(--gold);
-		color:var(--bg);
-		transform:translateY(-3px);
-	}
+    .catalog-box.open .catalog-arrow {
+        transform: rotate(225deg) translateY(-1px);
+    }
 
-	.feature-icon{
-		font-size:30px;
-		margin-bottom:12px;
-	}
+    .catalog-links {
+        display: grid;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        transition: grid-template-rows .42s cubic-bezier(.22,.61,.36,1),
+                    opacity .25s ease;
+    }
 
-	.feature-title{
-		font-size:16px;
-		font-weight:600;
-		line-height:1.3;
-		letter-spacing:.5px;
-	}
+    .catalog-box.open .catalog-links {
+        grid-template-rows: 1fr;
+        opacity: 1;
+    }
 
-	@media (max-width:400px){
+    .catalog-links-inner {
+        min-height: 0;
+        overflow: hidden;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        transition: padding .42s cubic-bezier(.22,.61,.36,1);
+    }
 
-		.feature-buttons{
-			gap:10px;
-		}
+    .catalog-box.open .catalog-links-inner {
+        padding: 0 10px 10px;
+    }
 
-		.feature-btn{
-			min-height:105px;
-			padding:14px;
-		}
+    .catalog-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 12px;
+        border: 1px solid rgba(198,167,94,.48);
+        border-radius: 8px;
+        color: var(--gold);
+        background: rgba(198,167,94,.035);
+        text-decoration: none;
+        font-size: 14px;
+        line-height: 1.3;
+        transform: translateY(-5px);
+        transition: background .22s ease, color .22s ease,
+                    border-color .22s ease, transform .35s ease;
+    }
 
-		.feature-title{
-			font-size:14px;
-		}
+    .catalog-box.open .catalog-link {
+        transform: translateY(0);
+    }
 
-		.feature-icon{
-			font-size:26px;
-		}
-	}
+    .catalog-link:hover {
+        background: var(--gold);
+        border-color: var(--gold);
+        color: var(--bg);
+        transform: translateY(-1px);
+    }
+
+    .work-btn {
+        margin-bottom: 28px;
+    }
+
+    .social-divider {
+        width: 100%;
+        height: 1px;
+        margin: 0 0 28px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(198,167,94,.28) 18%,
+            rgba(198,167,94,.28) 82%,
+            transparent
+        );
+    }
 
     @keyframes fadeIn {
         to { opacity: 1; }
@@ -235,23 +304,29 @@
         >
     </div>
 	
-	<div class="feature-buttons">
+    <div class="catalog-section">
+        <div class="catalog-box" id="catalogBox">
+            <button class="catalog-btn" id="catalogBtn" type="button"
+                    aria-expanded="false" aria-controls="catalogLinks">
+                <span class="catalog-title">Catálogo</span>
+                <span class="catalog-arrow" aria-hidden="true"></span>
+            </button>
 
-    <a href="catalogo.html" class="feature-btn">
-        <!-- <div class="feature-icon">✨</div> -->
-        <div class="feature-title">
-            Nuestras<br>Fragancias
+            <div class="catalog-links" id="catalogLinks">
+                <div class="catalog-links-inner">
+                    <a href="catalogo.html" class="catalog-link">DaFra Parfum online</a>
+                    <a href="pdfs/catalog_dafra_parfum.pdf" class="catalog-link" target="_blank" rel="noopener">DaFra Parfum descargar (PDF)</a>
+                    <a href="pdfs/catalog_dafra_indumentaria.pdf" class="catalog-link" target="_blank" rel="noopener">DaFra Indumentaria descargar (PDF)</a>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <a href="trabaja.html" class="btn work-btn">
+        Trabajá con Nosotros
     </a>
 
-    <a href="trabaja.html" class="feature-btn">
-        <!-- <div class="feature-icon">🤝</div> -->
-        <div class="feature-title">
-            Trabajá con<br>Nosotros
-        </div>
-    </a>
-
-	</div>
+    <div class="social-divider" aria-hidden="true"></div>
 
     <a href="https://instagram.com/dafraparfum" class="btn" target="_blank">
         Instagram
@@ -261,7 +336,7 @@
         Facebook
     </a>
 
-    <a href="https://wa.me/5493436442058" class="btn" target="_blank">
+    <a href="https://wa.me/5493436619832" class="btn" target="_blank">
         WhatsApp
     </a>
 
@@ -274,6 +349,17 @@
     </div>
 
 </div>
+
+
+<script>
+    const catalogBtn = document.getElementById('catalogBtn');
+    const catalogBox = document.getElementById('catalogBox');
+
+    catalogBtn.addEventListener('click', () => {
+        const isOpen = catalogBox.classList.toggle('open');
+        catalogBtn.setAttribute('aria-expanded', isOpen);
+    });
+</script>
 
 </body>
 </html>
