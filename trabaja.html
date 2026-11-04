@@ -15,10 +15,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Federo&family=Noto+Serif:ital,wght@1,400;1,700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 	<!--fin preload-->
     
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Federo&family=Noto+Serif:ital,wght@1,400;1,700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> -->
-    
     <link rel="stylesheet" href="css/catalogo.css">
     <link rel="stylesheet" href="css/trabaja.css">
 	
@@ -53,77 +49,67 @@
                 <div class="image-container">
 					<img src="images/trab_1.jpg" alt="Tabla de Ganancias DaFra" class="perfume-media" loading="lazy">
 				</div>
-                
-                <div class="perfume-header">
-                    <h2 class="perfume-title">Margen Directo</h2>
-                    <p class="perfume-teaser">“El valor de tu recomendación”</p>
-                </div>
 
-                <div class="details-inner" style="padding-top: 1rem;">
+                <div class="details-inner" style="padding-top: 0.5rem;">
                     <p class="perfume-story">
-                        Desde tu primer día, obtenés un retorno inmediato por cada fragancia que acercás a tus clientes. Sin mínimos complejos, gestionando tus tiempos con total libertad. El valor de tu recomendación se traduce en un margen claro, honesto y transparente que premia tu constancia.
+                        Desde tu primer día, obtenés un retorno inmediato por cada artículo que acercás a tus clientes. Sin mínimos complejos, gestionando tus tiempos con total libertad. El valor de tu recomendación se traduce en un margen claro, honesto y transparente que premia tu constancia.
                     </p>
                 </div>
             </div>
         </section>
 		
-		<!-- SISTEMA DE CANJES (ENTRE GANANCIA Y COMISIONES) -->
-        <section class="fragrance-chapter">
-            <div class="card-wrapper">
-                
-                <!-- Carrusel estático que va a cobrar vida con tu js/trabaja.js -->
-                <div class="carousel-container js-interactive-carousel">
-                    <div class="carousel-track">
-                        
-                        <!-- Slide 1: Vaso Metálico -->
-                        <div class="carousel-slide">
-                            <img src="images/canjes_page_1.jpg" alt="Vaso metálico DaFra" class="perfume-media" loading="lazy">
-                        </div>
-                        
-                        <!-- Slide 2: Bolsito -->
-                        <div class="carousel-slide">
-                            <img src="images/canjes_page_2.jpg" alt="Bolsito con correa" class="perfume-media" loading="lazy">
-                        </div>
-                        
-                        <!-- Slide 3: Neceseres -->
-                        <div class="carousel-slide">
-                            <img src="images/canjes_page_3.jpg" alt="Neceser negro" class="perfume-media" loading="lazy">
-                        </div>
-						
-						<!-- Slide 4: Vaso Térmico -->
-						<div class="carousel-slide">
-                            <img src="images/canjes_page_4.jpg" alt="Vaso térmico" class="perfume-media" loading="lazy">
-                        </div>
-						
-						<!-- Slide 5: Mate de Acero -->
-						<div class="carousel-slide">
-                            <img src="images/canjes_page_5.jpg" alt="Mate de acero" class="perfume-media" loading="lazy">
-                        </div>
-						
-						<!-- Slide 6: Bombilla mate -->
-						<div class="carousel-slide">
-                            <img src="images/canjes_page_6.jpg" alt="Bombilla para mate" class="perfume-media" loading="lazy">
-                        </div>
-                        
-                    </div>
-                    
-                    <!-- Los puntitos que se van a prender solos gracias a la clase js-interactive-carousel -->
-                    <div class="carousel-navigation-arrows"></div>
-					<div class="carousel-dots"></div>
-                </div>
-                
-                <div class="perfume-header">
-                    <h2 class="perfume-title">Programa de Incentivos</h2>
-                    <p class="perfume-teaser">“Tu constancia tiene identidad”</p>
-                </div>
+		<!-- SISTEMA DE CANJES -->
+		<section class="fragrance-chapter">
+			<div class="card-wrapper">
+				
+				<!-- Contenedor que agrupa el carrusel y la imagen fija del título -->
+				<div class="carousel-wrapper-with-title" style="position: relative;">
+					
+					<!-- Imagen con el título fijo (con fondo transparente donde corresponda) -->
+					<img src="images/titulo_canjes.png" alt="Programa de Incentivos" class="fixed-title-overlay" loading="lazy">
 
-                <div class="details-inner" style="padding-top: 1rem;">
-                    <p class="perfume-story">
-                        Cada movimiento en tu negocio suma. Con cada fragancia que incorporás a tus pedidos, acumulás puntos que se transforman en piezas exclusivas de nuestra línea de branding oficial DaFra. Desde mates y bombillas artesanales hasta vasos térmicos, neceseres y bolsos de diseño, pensados para acompañar tu día a día con la elegancia que nos caracteriza.
-                    </p>
-                </div>
-            </div>
-        </section>
+					<!-- Carrusel existente -->
+					<div class="carousel-container js-interactive-carousel">
+						<div class="carousel-track">
+							<!-- Slide 1: Vaso Metálico -->
+							<div class="carousel-slide">
+								<img src="images/canjes_page_1.jpg" alt="Vaso metálico DaFra" class="perfume-media" loading="lazy">
+							</div>
+							<!-- Slide 2: Bolsito -->
+							<div class="carousel-slide">
+								<img src="images/canjes_page_2.jpg" alt="Bolsito con correa" class="perfume-media" loading="lazy">
+							</div>
+							<!-- Slide 3: Neceseres -->
+							<div class="carousel-slide">
+								<img src="images/canjes_page_3.jpg" alt="Neceser negro" class="perfume-media" loading="lazy">
+							</div>
+							<!-- Slide 4: Vaso Térmico -->
+							<div class="carousel-slide">
+								<img src="images/canjes_page_4.jpg" alt="Vaso térmico" class="perfume-media" loading="lazy">
+							</div>
+							<!-- Slide 5: Mate de Acero -->
+							<div class="carousel-slide">
+								<img src="images/canjes_page_5.jpg" alt="Mate de acero" class="perfume-media" loading="lazy">
+							</div>
+							<!-- Slide 6: Bombilla mate -->
+							<div class="carousel-slide">
+								<img src="images/canjes_page_6.jpg" alt="Bombilla para mate" class="perfume-media" loading="lazy">
+							</div>
+						</div>
+						
+						<div class="carousel-navigation-arrows"></div>
+						<div class="carousel-dots"></div>
+					</div>
+
+				</div>
+
+				<div class="details-inner" style="padding-top: 0.5rem;">
+					<p class="perfume-story">
+						Cada movimiento en tu negocio suma. Con cada artículo que incorporás a tus pedidos, acumulás puntos que se transforman en piezas exclusivas de nuestra línea de branding oficial DaFra. Desde mates y bombillas artesanales hasta vasos térmicos, neceseres y bolsos de diseño, pensados para acompañar tu día a día con la elegancia que nos caracteriza.
+					</p>
+				</div>
+			</div>
+		</section>
 		
 		<!-- COMISIONES -->
         <section class="fragrance-chapter">
@@ -131,13 +117,8 @@
                 <div class="image-container">
 					<img src="images/trab_2.jpg" alt="Plan de Carrera y Rangos DaFra" class="perfume-media" loading="lazy">
 				</div>
-                
-                <div class="perfume-header">
-                    <h2 class="perfume-title">Plan de Carrera</h2>
-                    <p class="perfume-teaser">“Evolución en movimiento”</p>
-                </div>
 
-                <div class="details-inner" style="padding-top: 1rem;">
+                <div class="details-inner" style="padding-top: 0.5rem;">
                     <p class="perfume-story">
                         Tu evolución en DaFra se mide por objetivos cumplidos y compartidos. A medida que tu volumen y el de tus referenciados crece, tu rango se eleva, desbloqueando comisiones de niveles más profundos. Diseñá una estructura sólida que recompense tu capacidad de liderar.
                     </p>
@@ -151,13 +132,8 @@
                 <div class="image-container">
 					<img src="images/trab_5.jpg" alt="Estructura de Red Eficiente" class="perfume-media" loading="lazy">
 				</div>
-                
-                <div class="perfume-header">
-                    <h2 class="perfume-title">Construcción Eficiente</h2>
-                    <p class="perfume-teaser">“El éxito radica en la simetría”</p>
-                </div>
 
-                <div class="details-inner" style="padding-top: 1rem;">
+                <div class="details-inner" style="padding-top: 0.5rem;">
                     <p class="perfume-story">
                         El negocio se consolida a través del liderazgo y la duplicación. Al enfocar tus esfuerzos en guiar y capacitar a tres personas clave para que desarrollen su propia estructura activa, creás una red simétrica, estable y con comisiones de escala geométrica perfecta.
                     </p>
@@ -168,10 +144,6 @@
     </main>
 
     <footer class="footer">
-        <!-- <div class="brand-logo footer-logo"> -->
-            <!-- <img src="images/logo.png" alt="DaFra Parfum" width="140" height="47" class="logo-img"> -->
-        <!-- </div> -->
-        
         <h3 class="contact-footer-title">Contactate con nosotros</h3>
         
         <div class="footer-links flex-contact-links">

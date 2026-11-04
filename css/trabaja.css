@@ -4,7 +4,13 @@
 .trabaja-main .details-inner {
     display: block !important;
     opacity: 1 !important;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.fragrance-chapter .details-inner {
+    display: block !important;
+    opacity: 1 !important;
+    margin-bottom: 1rem;
 }
 
 /* Estilos para la zona de contacto del Footer */
@@ -91,6 +97,23 @@
     background: #c6a75e; /* Dorado característico */
     color: #000000;
     border-color: #c6a75e;
+}
+
+/* Contenedor relativo para posicionar elementos dentro */
+.carousel-wrapper-with-title {
+    position: relative;
+    width: 100%;
+}
+
+/* Imagen fija superpuesta */
+.fixed-title-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 10; /* Asegura que esté por encima del carrusel */
+    pointer-events: none; /* Vital: permite que los clicks/touches pasen a través de la imagen hacia el carrusel */
 }
 
 /* Mostramos las flechas únicamente en pantallas de escritorio o notebooks */
